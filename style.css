@@ -28,7 +28,7 @@ a {
 
 h1 {
   color: #ffffff;
-  font-size: 2.2rem;
+  font-size: 3rem;
   text-align: center;
   padding: 10px;
   font-weight: bold;
@@ -38,14 +38,16 @@ h1 {
 #header {
   position: relative;
   background-color: #004a80;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: auto;
+  width: 100%;
 }
 
 #header .header {
-  min-height: 8vh;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
 }
 
 #header .nav-bar {
@@ -55,7 +57,7 @@ h1 {
   width: 100%;
   height: 100%;
   padding: 20px 15px;
-  max-width: 1300px;
+  max-width: 1200px;
 }
 
 #header .brand {
@@ -68,19 +70,22 @@ h1 {
 }
 
 #header .nav-list {
-  width: 30%;
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: row;
+  max-width: 1200px;
 }
 
 #header .nav-list img {
   width: 23px;
   height: 23px;
+  margin: 0 25px;
 }
 
 #header .info {
+  display: flex;
+  flex-direction: column;
   justify-content: flex-start;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 50px;
 }
@@ -89,7 +94,7 @@ h1 {
   color: #ffffff;
   text-align: center;
   padding: 10px;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   padding-bottom: 8px;
 }
 
@@ -101,7 +106,7 @@ h1 {
   padding: 20px 50px;
 }
 
-#header .form input {
+#header .form-info input {
   width: 100%;
   height: 50px;
   border-radius: 3px;
@@ -111,7 +116,7 @@ h1 {
   margin-bottom: 10px;
 }
 
-#header .form input::placeholder {
+#header .form-info input::placeholder {
   font-weight: 800;
   padding: 18px;
   color: #9b9b9b;
@@ -119,7 +124,7 @@ h1 {
   line-height: 18px;
 }
 
-#header .form button {
+#header .form-info button {
   display: inline-block;
   width: 100%;
   height: 50px;
@@ -136,22 +141,23 @@ h1 {
   z-index: 0;
 }
 
-#header .form button:active {
+#header .form-info button:active {
   background-image: none;
   background-color: #f6bc25;
 }
 
-#header .form button:hover {
+#header .form-info button:hover {
   background-image: linear-gradient(225deg, #f2da56 100%, #f6bc25 0%);
 }
 
 #header .advice {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: row;
+  width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
   margin-bottom: 40px;
+  margin: 0 auto;
+  padding: 20px 50px;
 }
 
 #header .advice img {
@@ -161,7 +167,6 @@ h1 {
 }
 
 #header .advice p {
-  width: 70%;
   font-size: 1.2rem;
 }
 /* End Header Section */
@@ -170,21 +175,25 @@ h1 {
   position: relative;
   left: 0;
   top: 0;
-  width: 100vw;
+  width: 100%;
   height: auto;
   background-image: linear-gradient(0deg, #e6e6e6 0%, #ffffff 100%);
   overflow: hidden;
 }
 
+#items .items {
+  flex-direction: column;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
 #items .items-top {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
   width: 100%;
-  height: 100%;
-  padding: 20px 15px;
-  max-width: 1300px;
+  padding: 10px 25px;
+  max-width: 1200px;
+  overflow: hidden;
 }
 
 #items .items-top h1 {
@@ -193,20 +202,27 @@ h1 {
 }
 
 #items .items-top p {
+  display: flex;
   color: #4a4a4a;
   line-height: 28px;
   font-size: 1.2rem;
+  justify-content: center;
+  align-content: center;
 }
 
 #items .items-bottom {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1300px;
 }
 
 #items .item {
+  flex-basis: 80%;
   display: flex;
+  align-items: flex-start;
+  justify-content: center;
   flex-direction: row;
   width: 80%;
   margin: 15px auto;
@@ -217,7 +233,7 @@ h1 {
   background-color: #004a80;
   color: #f6bc25;
   height: 55px;
-  width: 320px;
+  width: 200px;
   border-radius: 50%;
   margin: 10px;
 }
@@ -245,23 +261,117 @@ h1 {
   position: relative;
   left: 0;
   top: 0;
-  width: 100vw;
+  width: 100%;
   height: auto;
 }
 
 #footer .info-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: 15px;
+  max-width: 1200px;
+}
+
+#footer .footer-info {
+  display: flex;
   margin: 15px;
   line-height: 20px;
   color: #999999;
-}
-
-#footer .copy {
-  display: flex;
-  color: #004a80;
-  font-weight: bold;
   align-content: center;
   justify-content: center;
+}
+
+#footer .terms {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: #004a80;
+  font-weight: bold;
   margin: 20px;
 }
 
 /*End Footer Section*/
+
+/*Media Query for tablet*/
+@media only screen and (min-width: 768px) {
+  /*Header Section*/
+  #header .title {
+    font-size: 6rem;
+  }
+
+  #header .form .form-info {
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+  }
+
+  #header .form-info input {
+    width: 70%;
+    margin-right: 20px;
+  }
+
+  #header .form-info button {
+    width: 20%;
+  }
+
+  #header .advice {
+    width: 100%;
+    float: left;
+  }
+  /*End Header Section*/
+  /*Items Section*/
+  #items .items-bottom .item {
+    flex-basis: 45%;
+    margin: 2.5%;
+  }
+
+  #items .icon {
+    height: 60px;
+    width: 280px;
+  }
+
+  #items .icon h2 {
+    font-size: 2rem;
+  }
+  /*End Items Section*/
+  /*Footer Section*/
+  #footer .info-footer {
+    flex-direction: row;
+  }
+
+  #footer .footer-info {
+    width: 80%;
+  }
+
+  #footer .terms {
+    justify-content: flex-end;
+    width: 20%;
+  }
+  /*End Footer Section*/
+}
+
+/*End Media Query for tablet*/
+/* Media Query for desktop*/
+@media only screen and (min-width: 1200px) {
+  #header {
+    display: flex;
+    justify-content: center;
+  }
+
+  #items .icon {
+    height: 70px;
+    width: 280px;
+  }
+
+  #items .icon h2 {
+    font-size: 2.2rem;
+  }
+
+  #footer {
+    display: flex;
+    justify-content: center;
+  }
+}
+/*End Media Query for desktop*/
