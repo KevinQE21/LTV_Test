@@ -1,0 +1,267 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+span {
+  color: #f6bc25;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 2.2rem;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+
+/* Header Section */
+#header {
+  position: relative;
+  background-color: #004a80;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: auto;
+}
+
+#header .header {
+  min-height: 8vh;
+}
+
+#header .nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 20px 15px;
+  max-width: 1300px;
+}
+
+#header .brand {
+  width: 50%;
+}
+
+#header .brand img {
+  width: 173px;
+  height: 25px;
+}
+
+#header .nav-list {
+  width: 30%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#header .nav-list img {
+  width: 23px;
+  height: 23px;
+}
+
+#header .info {
+  justify-content: flex-start;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+#header .subTitle {
+  color: #ffffff;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.2rem;
+  padding-bottom: 8px;
+}
+
+#header .form {
+  justify-content: flex-start;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 50px;
+}
+
+#header .form input {
+  width: 100%;
+  height: 50px;
+  border-radius: 3px;
+  border-style: none;
+  background: #ffffff;
+  box-shadow: inset 0 -1px 4px 0 rgba(0, 0, 0, 20);
+  margin-bottom: 10px;
+}
+
+#header .form input::placeholder {
+  font-weight: 800;
+  padding: 18px;
+  color: #9b9b9b;
+  letter-spacing: 2px;
+  line-height: 18px;
+}
+
+#header .form button {
+  display: inline-block;
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 6px;
+  border-style: none;
+  background-image: linear-gradient(225deg, #f2da56 0%, #f6bc25 100%);
+  color: #004a80;
+  font-weight: bold;
+  letter-spacing: 0.93px;
+  font-size: 22px;
+  text-align: center;
+  box-shadow: 0 3px #a6953b, inset 0 1px 0 0 #ffffff;
+  z-index: 0;
+}
+
+#header .form button:active {
+  background-image: none;
+  background-color: #f6bc25;
+}
+
+#header .form button:hover {
+  background-image: linear-gradient(225deg, #f2da56 100%, #f6bc25 0%);
+}
+
+#header .advice {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+#header .advice img {
+  width: 15px;
+  height: 19px;
+  margin-right: 10px;
+}
+
+#header .advice p {
+  width: 70%;
+  font-size: 1.2rem;
+}
+/* End Header Section */
+/*Items Section*/
+#items {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: auto;
+  background-image: linear-gradient(0deg, #e6e6e6 0%, #ffffff 100%);
+  overflow: hidden;
+}
+
+#items .items-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 20px 15px;
+  max-width: 1300px;
+}
+
+#items .items-top h1 {
+  color: #004a80;
+  margin: 10px;
+}
+
+#items .items-top p {
+  color: #4a4a4a;
+  line-height: 28px;
+  font-size: 1.2rem;
+}
+
+#items .items-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#items .item {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin: 15px auto;
+  overflow: hidden;
+}
+
+#items .icon {
+  background-color: #004a80;
+  color: #f6bc25;
+  height: 55px;
+  width: 320px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+#items .icon h2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  margin: 10px;
+}
+
+#items .item-info h2 {
+  color: #004a80;
+}
+
+#items .item-info p {
+  color: #000000;
+  line-height: 24px;
+}
+/*End Items Section*/
+/*Footer Section*/
+#footer {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: auto;
+}
+
+#footer .info-footer {
+  margin: 15px;
+  line-height: 20px;
+  color: #999999;
+}
+
+#footer .copy {
+  display: flex;
+  color: #004a80;
+  font-weight: bold;
+  align-content: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+/*End Footer Section*/
