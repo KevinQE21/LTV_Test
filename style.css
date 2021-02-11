@@ -78,7 +78,7 @@ h1 {
 #header .nav-list img {
   width: 23px;
   height: 23px;
-  margin: 0 25px;
+  margin: 0 20px;
 }
 
 #header .info {
@@ -141,13 +141,13 @@ h1 {
   z-index: 0;
 }
 
-#header .form-info button:active {
-  background-image: none;
-  background-color: #f6bc25;
+#header .submit:active:hover {
+  background-image: linear-gradient(225deg, #f6bc25 100%, #f2da56 0%);
+  border-style: none;
 }
 
-#header .form-info button:hover {
-  background-image: linear-gradient(225deg, #f2da56 100%, #f6bc25 0%);
+#header .submit:hover {
+  background-image: linear-gradient(225deg, #f6bc25 0%, #f2da56 0%);
 }
 
 #header .advice {
