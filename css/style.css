@@ -144,13 +144,26 @@ h1 {
   padding: 1.5rem 2rem;
 }
 
-#form .error {
+.error {
   border-radius: 3px;
   border-style: solid;
   border-color: red;
 }
 
-#form .form-info #alert {
+#alert {
+  width: 100%;
+  color: white;
+  padding: 5px;
+  font-size: 16px;
+  color: #ffffff;
+  line-height: 18px;
+  border-color: red;
+  border-radius: 3px;
+  border-top: 0;
+  border-style: solid;
+}
+
+#alertAnother {
   width: 100%;
   color: white;
   padding: 5px;
@@ -732,6 +745,32 @@ h1 {
   }
   /*End Items Section*/
   /*Search Section*/
+
+  #search #sendSearch {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+  }
+
+  #search #inputAnother {
+    width: 70%;
+  }
+
+  #search #inputAnother #anotherEmail {
+    width: 95%;
+  }
+
+  #search .button {
+    width: 30%;
+
+    margin: 10px;
+  }
+
+  #search .adviceAnother {
+    width: 100%;
+    float: left;
+  }
+
   #search {
     padding: 63px 0;
   }
@@ -767,10 +806,6 @@ h1 {
 
   #search .form-info button {
     width: 20%;
-  }
-
-  #search .advice {
-    width: 100%;
   }
 
   /*End Search Section*/

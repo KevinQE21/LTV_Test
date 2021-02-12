@@ -255,13 +255,19 @@
         <div class="form">
           <div class="form-info">
             <form action="" method="POST" id="sendSearch">
-              <input
-                type="text"
-                id="anotherEmail"
-                placeholder="EMAIL"
-                value=""
-              />
-              <button type="submit" class="submit" id="getEmail">GO!</button>
+              <div id="inputAnother">
+                <input
+                  type="text"
+                  id="anotherEmail"
+                  placeholder="EMAIL"
+                  value=""
+                />
+                <label id="alertAnother" style="display: none"
+                  >Please add a valid email address</label
+                >
+              </div class='button'>
+                <button type="submit" class="submit" id="getEmail">GO!</button>
+              </div>
             </form>
           </div>
         </div>

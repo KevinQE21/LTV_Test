@@ -5,9 +5,11 @@ const $loading = $("#loading");
 const $result = $("#result");
 const $search = $("#search");
 const $searchEmailFormBtn = $("#get");
-const $searchAnotherEmailFormBtn = $("#getEmail");
 const $emailField = $("#email");
-const $anotherEmail = $("#anotherEmail");
+const $anotherEmailField = $("#anotherEmail");
+const $searchAnotherEmailFormBtn = $("#getEmail");
+const $alertAnother = $("alertAnother");
+const $inputAnother = $("#inputAnother");
 const $relatives = $("#relatives");
 const $phoneNumbers = $("#phoneNumbers");
 const $name = $("#name");
@@ -37,6 +39,9 @@ function toggleSearch(show) {
     $loading.show();
     $form.hide();
     $items.hide();
+    $result.hide();
+    $search.hide();
+    $negativeResult.hide();
   } else {
     $loading.hide();
     $form.show();
@@ -114,6 +119,7 @@ function deployInfo({
 function showOutput(res) {
   $result.show();
   $search.show();
+  $negativeResult.hide();
   deployInfo(res);
 }
 
@@ -132,24 +138,24 @@ function handleSearchEmailForm(event) {
   }
 }
 
-function handlesearchAnotherEmailFormBtn(event) {
+function handleSearchAnotherEmailFormBtn(event) {
   event.preventDefault();
 
-  const anotherEmail = $emailField.val();
+  const anotherEmail = $anotherEmailField.val();
 
-  if (!validateEmail(email)) {
-    $anotherEmail.addClass("error");
-    $input.addClass("input");
-    $alert.css("display", "block");
+  if (!validateEmail(anotherEmail)) {
+    $anotherEmailField.addClass("error");
+    $inputAnother.addClass("input");
+    $alertAnother.css("display", "block");
   } else {
-    $emailField.removeClass("error");
-    getData(email);
+    $anotherEmailField.removeClass("error");
+    getData(anotherEmail);
   }
 }
 
 function addEvents() {
   $searchEmailFormBtn.click(handleSearchEmailForm);
-  $searchAnotherEmailFormBtn.click(handlesearchAnotherEmailFormBtn);
+  $searchAnotherEmailFormBtn.click(handleSearchAnotherEmailFormBtn);
 }
 
 function init() {
