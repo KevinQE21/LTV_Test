@@ -190,6 +190,11 @@ h1 {
 /*End Positive Result*/
 
 /*Negative Result*/
+#result .noResult {
+  padding: 100px 0;
+  position: relative;
+  width: 100%;
+}
 #result .noResult-top {
   margin: 120px 10px;
   width: 100%;
@@ -214,7 +219,7 @@ h1 {
 
 /*Loader Section*/
 #result .loading {
-  margin: 50px auto;
+  padding: 100px 0;
   position: relative;
   width: 100%;
 }
@@ -298,7 +303,6 @@ h1 {
   font-weight: bold;
   color: #004a80;
   line-height: 28px;
-  margin-bottom: 10%;
 }
 /*End Loader Section*/
 
