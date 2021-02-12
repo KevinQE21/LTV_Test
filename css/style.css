@@ -109,6 +109,14 @@ h1 {
   padding-bottom: 8px;
 }
 
+#form .forms {
+  justify-content: center;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 50px;
+}
+
 #form .form {
   justify-content: center;
   max-width: 1300px;
@@ -432,6 +440,7 @@ h1 {
 #negativeResult {
   position: relative;
   display: none;
+  overflow: hidden;
 }
 #negativeResult .noResult {
   padding: 100px 0;
@@ -643,8 +652,6 @@ h1 {
 /*Footer Section*/
 #footer {
   position: relative;
-  left: 0;
-  top: 0;
   width: 100%;
   height: auto;
 }
@@ -850,11 +857,6 @@ h1 {
 
   #form .form-info #alert {
     width: 41%;
-  }
-
-  #form .advice {
-    margin-left: 7%;
-    padding: 20px;
   }
 
   #search .search {
