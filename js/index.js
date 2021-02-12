@@ -1,10 +1,13 @@
-const $form = $("#form-wrapper");
+const $form = $("#form");
+const $formWrapper = $("#form-wrapper");
 const $items = $("#items");
-const $loading = $("#form .loading");
+const $loading = $("#loading");
 const $result = $("#result");
 const $search = $("#search");
 const $searchEmailFormBtn = $("#get");
+const $searchAnotherEmailFormBtn = $("#getEmail");
 const $emailField = $("#email");
+const $anotherEmail = $("#anotherEmail");
 const $relatives = $("#relatives");
 const $phoneNumbers = $("#phoneNumbers");
 const $name = $("#name");
@@ -17,7 +20,6 @@ const $address = $("#address");
 
 function validateEmail(email) {
   const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  //Return true or false from validation
   return re.test(email);
 }
 
@@ -69,8 +71,6 @@ function getData(email) {
 
 function displayDataSuccess({ data, status }) {
   if (status === 200 && !Array.isArray(data)) {
-    $items.hide();
-    $form.hide();
     showOutput(data);
   } else {
     displayDataError();
@@ -117,23 +117,6 @@ function showOutput(res) {
   deployInfo(res);
 }
 
-/*const form = document.getElementById("");
-
-form.addEventListener("submit", (event) => {
-  const email = document.getElementById("email").value;
-  event.preventDefault();
-
-  if (!validateEmail(email)) {
-    document.getElementById("input").setAttribute("class", "input");
-    document.getElementById("email").setAttribute("class", "error");
-    document.getElementById("alert").style.display = "block";
-  } else {
-    document.getElementById("email").setAttribute("class", "");
-    console.log(email);
-    getData(email);
-  }
-});*/
-
 function handleSearchEmailForm(event) {
   event.preventDefault();
 
@@ -149,8 +132,24 @@ function handleSearchEmailForm(event) {
   }
 }
 
+function handlesearchAnotherEmailFormBtn(event) {
+  event.preventDefault();
+
+  const anotherEmail = $emailField.val();
+
+  if (!validateEmail(email)) {
+    $anotherEmail.addClass("error");
+    $input.addClass("input");
+    $alert.css("display", "block");
+  } else {
+    $emailField.removeClass("error");
+    getData(email);
+  }
+}
+
 function addEvents() {
   $searchEmailFormBtn.click(handleSearchEmailForm);
+  $searchAnotherEmailFormBtn.click(handlesearchAnotherEmailFormBtn);
 }
 
 function init() {

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
-    <title>Document</title>
+    <title>LTV Front-end Test</title>
   </head>
   <body>
     <!--Header-->
@@ -35,45 +35,45 @@
     <!--End Header-->
 
     <!--Form Section-->
-    <section id="form">
+    <section id="loading">
       <div class="loading">
         <div class="loader"></div>
         <div class="loader-message">
           <p>Please wait a moment...</p>
         </div>
       </div>
-      <div id="form-wrapper ">
-        <div class="forms">
-          <div class="info">
-            <div class="title">
-              <h1>Search Any Email Address</h1>
-            </div>
-            <div class="subTitle">
-              <p>
-                <span>Start Here</span>- Look up the owner's name, photos and
-                online profiles. See what you find!
-              </p>
-            </div>
+    </section>
+    <section id="form">
+      <div class="forms">
+        <div class="info">
+          <div class="title">
+            <h1>Search Any Email Address</h1>
           </div>
-          <div class="form">
-            <div class="form-info">
-              <form action="" method="POST" id="send">
-                <div id="input">
-                  <input type="text" id="email" placeholder="EMAIL" value="" />
-                  <label id="alert" style="display: none"
-                    >Please add a valid email address</label
-                  >
-                </div>
-                <div class="button">
-                  <button type="submit" class="submit" id="get">GO!</button>
-                </div>
-              </form>
-            </div>
+          <div class="subTitle">
+            <p>
+              <span>Start Here</span>- Look up the owner's name, photos and
+              online profiles. See what you find!
+            </p>
           </div>
-          <div class="advice">
-            <img src="./img/PNGs/lock@2x.png" alt="" />
-            <p><span>Enter Any Email Address. They won't be notified</span></p>
+        </div>
+        <div class="form">
+          <div class="form-info">
+            <form action="" method="POST" id="send">
+              <div id="input">
+                <input type="text" id="email" placeholder="EMAIL" value="" />
+                <label id="alert" style="display: none"
+                  >Please add a valid email address</label
+                >
+              </div>
+              <div class="button">
+                <button type="submit" class="submit" id="get">GO!</button>
+              </div>
+            </form>
           </div>
+        </div>
+        <div class="advice">
+          <img src="./img/PNGs/lock@2x.png" alt="" />
+          <p><span>Enter Any Email Address. They won't be notified</span></p>
         </div>
       </div>
     </section>
@@ -255,8 +255,13 @@
         <div class="form">
           <div class="form-info">
             <form action="" method="POST" id="sendSearch">
-              <input type="text" id="email" placeholder="EMAIL" value="" />
-              <button type="submit" class="submit" id="get">GO!</button>
+              <input
+                type="text"
+                id="anotherEmail"
+                placeholder="EMAIL"
+                value=""
+              />
+              <button type="submit" class="submit" id="getEmail">GO!</button>
             </form>
           </div>
         </div>
