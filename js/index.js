@@ -51,13 +51,14 @@ function toggleSearch(show) {
 
 function waitNSeconds(seconds) {
   return new Promise((resolve) => {
-    setTimeout(resolve, seconds * 1000);
+    setTimeout(resolve, seconds * 1000); //Insert n second to wait
   });
 }
 
 function getData(email) {
   toggleSearch(true);
 
+  //A number is used to generate a wait, to avoid flashing elements
   waitNSeconds(3).then(() => {
     axios(
       "https://ltv-data-api.herokuapp.com/api/v1/records.json?" +
@@ -164,10 +165,3 @@ function init() {
 }
 
 $(document).ready(init);
-
-//function () {
-//   $("#loading").hide("slow");
-//   $("#negativeResult").hide("slow");
-//   $("#search").hide("slow");
-//   $("#result").hide("slow");
-// }

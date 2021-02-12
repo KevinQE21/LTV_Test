@@ -144,6 +144,14 @@ h1 {
   padding: 1.5rem 2rem;
 }
 
+#search #inputAnother {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 1200px;
+}
+
 .error {
   border-radius: 3px;
   border-style: solid;
