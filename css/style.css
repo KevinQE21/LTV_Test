@@ -88,6 +88,11 @@ h1 {
   position: relative;
   background-color: #004a80;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  max-width: 1200px;
 }
 
 #form .forms {
@@ -213,6 +218,43 @@ h1 {
 #form .advice p {
   font-size: 1.2rem;
 }
+
+#form .loader-message {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #004a80;
+  line-height: 28px;
+}
+
+#form .loading {
+  width: 100%;
+  position: absolute;
+  display: none;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  position: relative;
+  background-color: white;
+  width: 100%;
+}
+
+#form .loader-message {
+  background: #ffffff;
+}
+
+#form-wrapper {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  display: none;
+}
 /* End Form Section */
 /*Items Section*/
 #items {
@@ -305,6 +347,7 @@ h1 {
   position: relative;
   background-image: linear-gradient(0deg, #e6e6e6 0%, #ffffff 100%);
   width: 100%;
+  display: none;
 }
 
 #result .result {
@@ -410,6 +453,10 @@ h1 {
 /*End Positive Result*/
 
 /*Negative Result*/
+#negativeResult {
+  position: relative;
+  display: none;
+}
 #negativeResult .noResult {
   padding: 100px 0;
   position: relative;
@@ -423,7 +470,7 @@ h1 {
   justify-content: center;
 }
 
-#renegativeResultsult .noResult-top h1 {
+#negativeResult .noResult-top h1 {
   color: #004a80;
 }
 
@@ -438,11 +485,6 @@ h1 {
 /*End Negative Result*/
 
 /*Loader Section*/
-#loading .loading {
-  padding: 100px 0;
-  position: relative;
-  width: 100%;
-}
 .loader {
   font-size: 15px;
   margin: 50px auto;
@@ -514,20 +556,12 @@ h1 {
     transform: rotate(360deg);
   }
 }
-
-#loading .loader-message {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #004a80;
-  line-height: 28px;
-}
 /*End Loader Section*/
 
 /*Section Search*/
 #search {
+  position: absolute;
+  display: none;
   position: relative;
   background-color: #004a80;
   width: 100%;
@@ -732,6 +766,10 @@ h1 {
     background-color: transparent;
   }
 
+  #form .form-info #alert {
+    width: 45%;
+  }
+
   #form label {
     background-color: red;
   }
@@ -837,6 +875,10 @@ h1 {
 
   #result .result-top p {
     text-align: center;
+  }
+
+  #form .form-info #alert {
+    width: 41%;
   }
 
   #search .search {

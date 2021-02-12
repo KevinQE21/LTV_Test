@@ -1,3 +1,20 @@
+const $form = $("#form-wrapper");
+const $items = $("#items");
+const $loading = $("#form .loading");
+const $result = $("#result");
+const $search = $("#search");
+const $searchEmailFormBtn = $("#get");
+const $emailField = $("#email");
+const $relatives = $("#relatives");
+const $phoneNumbers = $("#phoneNumbers");
+const $name = $("#name");
+const $input = $("#input");
+const $alert = $("#alert");
+const $negativeResult = $("#negativeResult");
+const $personEmail = $("#personEmail");
+const $description = $("#description");
+const $address = $("#address");
+
 function validateEmail(email) {
   const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   //Return true or false from validation
@@ -13,68 +30,95 @@ function objToQueryString(obj) {
   return str.join("&");
 }
 
+function toggleSearch(show) {
+  if (show) {
+    $loading.show();
+    $form.hide();
+    $items.hide();
+  } else {
+    $loading.hide();
+    $form.show();
+    $items.show();
+  }
+}
+
+function waitNSeconds(seconds) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, seconds * 1000);
+  });
+}
+
 function getData(email) {
-  axios(
-    "https://ltv-data-api.herokuapp.com/api/v1/records.json?" +
-      objToQueryString({ email: email })
-  )
-    .then((res) => display(res))
-    .catch((err) => console.error(err));
+  toggleSearch(true);
+
+  waitNSeconds(3).then(() => {
+    axios(
+      "https://ltv-data-api.herokuapp.com/api/v1/records.json?" +
+        objToQueryString({ email: email })
+    )
+      .then((res) => {
+        displayDataSuccess(res);
+        $loading.hide();
+      })
+      .catch((err) => {
+        toggleSearch(false);
+        console.error(err);
+      });
+  });
 }
 
-function display(res) {
-  if (res.statusText === "OK") {
-    $("#form").hide("fast");
-    $("#items").hide("fast");
-    showOutput(res);
+function displayDataSuccess({ data, status }) {
+  if (status === 200 && !Array.isArray(data)) {
+    $items.hide();
+    $form.hide();
+    showOutput(data);
+  } else {
+    displayDataError();
   }
 }
 
-function deployInfo(res) {
-  const {
-    email,
-    description,
-    first_name,
-    last_name,
-    address,
-    phone_numbers,
-    relatives,
-  } = res.data;
+function displayDataError() {
+  $negativeResult.show();
+  $search.show();
+}
 
-  console.log(res.data);
-  for (let person of relatives) {
-    const para = document.createElement("p");
-    const node = document.createTextNode(person);
-    para.appendChild(node);
-    document.getElementById("relatives").appendChild(para);
+function deployInfo({
+  email,
+  description,
+  first_name,
+  last_name,
+  address,
+  phone_numbers,
+  relatives,
+}) {
+  const relativesInfo = $("<div></div>");
+  for (const person of relatives) {
+    relativesInfo.append("<p>" + person + "</p>");
   }
 
-  for (let number of phone_numbers) {
-    const para = document.createElement("p");
-    const node = document.createTextNode(number);
-    para.appendChild(node);
-    document.getElementById("phoneNumbers").appendChild(para);
+  $relatives.append(relativesInfo);
+
+  const phoneNumberInfo = $("<div></div>");
+  for (const number of phone_numbers) {
+    phoneNumberInfo.append("<p>" + number + "</p>");
   }
 
-  document.getElementById("name").innerHTML = `${first_name} ${last_name}`;
-  document.getElementById("personEmail").innerHTML = email;
-  document.getElementById("description").innerHTML = description;
-  document.getElementById("address").innerHTML = address;
+  $phoneNumbers.append(phoneNumberInfo);
+
+  $name.text(`${first_name} ${last_name}`);
+  $personEmail.text(`${email}`);
+  $description.text(`${description}`);
+  $address.text(`${address}`);
 }
 
 function showOutput(res) {
-  $("#loading").show("slow");
-  setTimeout(() => {
-    $("#loading").hide("slow");
-
-    $("#result").show("slow");
-    $("#search").show("slow");
-
-    deployInfo(res);
-  }, 5000);
+  $result.show();
+  $search.show();
+  deployInfo(res);
 }
 
-const form = document.getElementById("send");
+/*const form = document.getElementById("");
+
 form.addEventListener("submit", (event) => {
   const email = document.getElementById("email").value;
   event.preventDefault();
@@ -88,25 +132,37 @@ form.addEventListener("submit", (event) => {
     console.log(email);
     getData(email);
   }
-});
+});*/
 
-const formSearch = document.getElementById("sendSearch");
-formSearch.addEventListener("submit", (event) => {
-  const email = document.getElementById("email").value;
+function handleSearchEmailForm(event) {
   event.preventDefault();
 
+  const email = $emailField.val();
+
   if (!validateEmail(email)) {
-    document.getElementById("email").setAttribute("class", "error");
+    $emailField.addClass("error");
+    $input.addClass("input");
+    $alert.css("display", "block");
   } else {
-    document.getElementById("email").setAttribute("class", "");
-    console.log(email);
+    $emailField.removeClass("error");
     getData(email);
   }
-});
+}
 
-$(document).ready(function () {
-  $("#loading").hide("slow");
-  $("#negativeResult").hide("slow");
-  $("#search").hide("slow");
-  $("#result").hide("slow");
-});
+function addEvents() {
+  $searchEmailFormBtn.click(handleSearchEmailForm);
+}
+
+function init() {
+  addEvents();
+  toggleSearch(false);
+}
+
+$(document).ready(init);
+
+//function () {
+//   $("#loading").hide("slow");
+//   $("#negativeResult").hide("slow");
+//   $("#search").hide("slow");
+//   $("#result").hide("slow");
+// }
